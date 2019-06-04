@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ejemplo Auxiliar - IN3501</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+{% include 'miapp/menu.html' %}
+
+
+<!-- Header -->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container">
+        <h1 class="text-uppercase mb-0">Iniciar sesión</h1>
+    </div>
+</header>
+<br>
+
+    <div class="container">
+        <form method="POST" action="{% url 'auth' %}"> 
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="usernameAlumno">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="usernameAlumno" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="passAlumno">Contraseña</label>
+                <input type="password" class="form-control" id="passAlumno" name="password" required>
+            </div>
+            <br>
+        <input type="submit" value="Iniciar sesion">
+        </form>
+    </div>
+    <br>
+
+{% include 'miapp/footer.html' %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ejemplo Auxiliar - IN3501</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+{% include 'miapp/menu.html' %}
+
+
+<!-- Header -->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container">
+        <h1 class="text-uppercase mb-0">Nuevo Estudiante</h1>
+    </div>
+</header>
+<br>
+
+    <div class="container">
+        <form method="POST" action="{% url 'create_user' %}"> 
+            {% csrf_token %}
+            <div class="form-group" >
+                <label for="nombreAlumno">Nombre</label>
+                <input type="text" class="form-control" id="nombreAlumno" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="mailAlumno">Mail</label>
+                <input type="email" class="form-control" id="mailAlumno" name="mail" required>
+            </div>
+            <div class="form-group">
+                <label for="numeroAlumno">Numero</label>
+                <input type="number" class="form-control" id="numeroAlumno" name="numero" required>
+            </div>
+            <div class="form-group">
+                <label for="grupoAlumno">Grupo</label>
+                <select class="form-control" id="grupoAlumno" name="grupo">
+                {% for value in grupos %}
+                <option value="{{value.pk}}">{{value.nombre}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numeroAlumno">Apodo</label>
+                <input type="text" class="form-control" id="numeroAlumno" name="apodo" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="usernameAlumno">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="usernameAlumno" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="passAlumno">Contraseña</label>
+                <input type="password" class="form-control" id="passAlumno" name="password" required>
+            </div>
+            <br>
+
+        <input type="submit" value="Crear Alumno">
+        </form>
+    </div>
+    <br>
+
+{% include 'miapp/footer.html' %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">IN3501</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-xs-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/lista_proyectos">Proyectos</a>
+                </li>
+                <li class="nav-item mx-0 mx-xs-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/lista_estudiantes">Estudiantes</a>
+                </li>
+                <li class="nav-item mx-0 mx-xs-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/new_project">Nuevo proyecto</a>
+                </li>
+                <li class="nav-item mx-0 mx-xs-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/new_ramo">Ramos</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item mx-0 mx-xs-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'logout' %}">Cerrar sesion</a>
+                </li>
+                {% else %}
+                <li class="nav-item mx-0 mx-xs-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'new_user' %}">Crear usuario</a>
+                </li>
+                <li class="nav-item mx-0 mx-xs-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'login' %}">Iniciar Sesion</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

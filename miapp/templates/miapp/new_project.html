@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ejemplo Auxiliar - IN3501</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+{% include 'miapp/menu.html' %}
+
+
+<!-- Header -->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container">
+        <h1 class="text-uppercase mb-0">Creación de un nuevo proyecto</h1>
+    </div>
+</header>
+
+<section id="agregar">
+    <div class="container">
+
+
+        
+        <form method="POST" action="/add_proyecto"> {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputTexto">Descripción del proyecto</label>
+                <input type="text" class="form-control" id="exampleText" placeholder="Ingrese texto" name="descripcion">
+            </div>
+
+
+
+
+
+            <br>
+            <div class="form-group">
+                <label class="mr-3">
+                    <input type="radio" class="mr-1" name="cliente" id="cliente" value="CEI"> CEI
+                </label>
+                <label class="mr-3">    
+                    <input type="radio" class="mr-1" name="cliente" id="cliente" value="DII"> DII
+                </label>
+                <label class="mr-3">
+                    <input type="radio" class="mr-1" name="cliente" id="cliente" value="DCC"> DCC
+                </label>
+                <label class="mr-3">
+                    <input type="radio" class="mr-1" name="cliente" id="cliente" value="DIE"> DIE
+                </label>
+                <label class="mr-3">
+                    <input type="radio" class="mr-1" name="cliente" id="cliente" value="DIM"> DIM
+                </label>
+            </div>
+            
+            <div class="form-group row">
+                <div class="row">
+                    <label class="col-sm-3 col-form-label" for="fecha_limite">Fecha límite</label>
+                    <input type="date" id="fecha_limite" name="fecha_limite">
+                </div>
+            </div>
+            <div class="form-group">
+            <div class="row">
+                <label for="exampleNumber">Número de participantes del proyecto</label>
+                <input type="number" class="form-control" id="exampleNumber" placeholder="Ingrese numero" name="inputNumber">
+            </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                <label for="exampleInputEmail1">Ingrese mail del usuario</label>
+                <input type="email" class="form-control" id="exampleEmail" placeholder="Ingrese email" name="inputEmail">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                <label for="exampleInputPassword1">Introduzca su contraseña</label>
+                <input type="password" class="form-control" id="examplePassword" placeholder="ingrese contraseña" name="inputPassword">
+                </div>
+            </div>
+
+            Checkbox
+            <div class="form-group">
+            <div class="form-check form-check-inline" >
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="inputCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check1</label>
+            </div>
+            <br>
+
+            <div class="form-check form-check-inline" >
+                <input type="checkbox" class="form-check-input" id="exampleCheck2" name="inputCheck2">
+                <label class="form-check-label" for="exampleCheck2">Check2</label>
+            </div>
+            <br>
+            <div class="form-check form-check-inline" >
+                <input type="checkbox" class="form-check-input" id="exampleCheck3" name="inputCheck3">
+                <label class="form-check-label" for="exampleChec3">Check3</label>
+            </div>
+            <br>
+            </div>
+
+
+            <div class="form-group">
+                <label for="exampleFile">Subir archivo</label>
+                <input type="file" class="form-control-file" id="exampleFile">
+            </div>
+        
+        </div>
+        <input type="submit">
+        </form>
+    </div>
+</section>
+
+
+
+{% include 'miapp/footer.html' %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
